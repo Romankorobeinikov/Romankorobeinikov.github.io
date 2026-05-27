@@ -1002,6 +1002,116 @@
   </div>
   <!-- /card 3 -->
 
+  <!-- ── CARD 4 ── -->
+  <div class="project-card">
+
+    <div class="card-header">
+      <div class="card-title-block">
+        <div class="card-index">PROJECT_004</div>
+        <h3>Термошейкер для 96-луночного планшета</h3>
+        <p class="card-desc">
+          Лабораторный термошейкер для инкубации 96-луночных планшетов с точным контролем
+          температуры и скорости вращения. Бесколлекторный привод с собственной реализацией
+          трапециевидного FOC и PID-регулятором на STM32F405. Вся силовая и управляющая
+          электроника на одной компактной плате.
+        </p>
+      </div>
+      <div class="card-meta">
+        <span class="card-place">Лаб. медтехники in vitro, МФТИ</span>
+        <span class="card-year">2023 — 2024</span>
+      </div>
+    </div>
+
+    <div class="card-tags">
+      <span class="tag accent">STM32F405</span>
+      <span class="tag">FOC</span>
+      <span class="tag">BLDC</span>
+      <span class="tag">DRV8313</span>
+      <span class="tag">PID</span>
+      <span class="tag">CAN</span>
+      <span class="tag">Altium Designer</span>
+      <span class="tag">C / HAL</span>
+      <span class="tag">PWM</span>
+      <span class="tag">DS18B20</span>
+    </div>
+
+    <div class="card-tabs">
+      <button class="tab-btn active" onclick="switchTab(this, 'overview-4')">Обзор</button>
+      <button class="tab-btn" onclick="switchTab(this, 'pcb-4')">Схема / PCB</button>
+      <button class="tab-btn" onclick="switchTab(this, 'model-4')">3D модель</button>
+    </div>
+
+    <!-- TAB: Обзор -->
+    <div id="overview-4" class="tab-pane active">
+      <div class="overview-grid">
+        <div class="overview-block">
+          <h4>Задача</h4>
+          <ul>
+            <li>Разработать термошейкер для перемешивания и нагрева 96-луночного планшета</li>
+            <li>Точный контроль температуры и скорости вращения</li>
+            <li>Компактная электроника, связь с ПК</li>
+          </ul>
+        </div>
+        <div class="overview-block">
+          <h4>Моя роль</h4>
+          <ul>
+            <li>Полная разработка схемы и PCB в Altium Designer</li>
+            <li>DRV8313PWR, MOSFET для термоплаты, соленоид стопора, DC/DC 24→5В, CAN</li>
+            <li>Прошивка STM32F405 (HAL/C): трапециевидный FOC по датчикам Холла, PID скорости, управление нагревом</li>
+          </ul>
+        </div>
+        <div class="overview-block">
+          <h4>Ключевые решения</h4>
+          <ul>
+            <li>Собственная реализация трапециевидного FOC на таймерах STM32 без сторонних библиотек</li>
+            <li>PID-регулятор скорости и температуры</li>
+            <li>Два DS18B20 для дифференциального контроля температуры планшета</li>
+            <li>Вся система на одной компактной двусторонней PCB</li>
+          </ul>
+        </div>
+        <div class="overview-block">
+          <h4>Результат</h4>
+          <ul>
+            <li>Рабочий прототип с плавным вращением BLDC</li>
+            <li>Стабильная поддержка заданной температуры</li>
+            <li>Стабильная коммуникация с ПК</li>
+            <li>Компактная трассировка всей системы на одной плате</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Схема/PCB -->
+    <div id="pcb-4" class="tab-pane">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="assets/images/shaker/%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%201.png" alt="Плата 1" />
+          <img src="assets/images/shaker/%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%202.png" alt="Плата 2" />
+          <img src="assets/images/shaker/%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%203.jpg" alt="Плата 3" />
+          <img src="assets/images/shaker/%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%204.jpg" alt="Плата 4" />
+        </div>
+        <button class="carousel-btn prev">&#8249;</button>
+        <button class="carousel-btn next">&#8250;</button>
+        <div class="carousel-counter">1 / 4</div>
+      </div>
+    </div>
+
+    <!-- TAB: 3D модель -->
+    <div id="model-4" class="tab-pane">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="assets/images/shaker/%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%201.png" alt="Модель 1" />
+          <img src="assets/images/shaker/%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%202.png" alt="Модель 2" />
+        </div>
+        <button class="carousel-btn prev">&#8249;</button>
+        <button class="carousel-btn next">&#8250;</button>
+        <div class="carousel-counter">1 / 2</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /card 4 -->
+
   <!-- Сюда добавляйте следующие карточки, копируя блок выше -->
 
 </section>
