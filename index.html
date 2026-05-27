@@ -176,7 +176,8 @@
 
     .tag:hover { border-color: var(--accent); color: var(--accent); }
     .tag.accent { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
-    .hero-tags .tag { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+    .hero-tags .tag,
+    .card-tags .tag { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
 
     .hero-contacts {
       display: flex;
@@ -426,6 +427,20 @@
       color: var(--txt3);
     }
 
+    .img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .img-grid img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      object-fit: cover;
+    }
+
     /* PCB / Schematic */
     .pcb-placeholder {
       width: 100%;
@@ -542,14 +557,14 @@
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero">
-  <div class="hero-label">Инженер-прототипист · Москва</div>
+  <div class="hero-label">Инженер · Москва</div>
 
   <h1>Роман<br><span>Коробейников</span></h1>
 
   <p class="hero-sub">
     Разрабатываю комплексные устройства — от идеи до рабочего прототипа.
     Схемотехника, прошивки STM32, печатные платы, 3D-модели корпусов
-    — весь цикл в одних руках.
+    — полный цикл.
   </p>
 
   <div class="hero-tags">
@@ -614,10 +629,8 @@
 
     <div class="card-tabs">
       <button class="tab-btn active" onclick="switchTab(this, 'overview-1')">Обзор</button>
-      <button class="tab-btn" onclick="switchTab(this, 'media-1')">Фото / Видео</button>
+      <button class="tab-btn" onclick="switchTab(this, 'media-1')">Фото</button>
       <button class="tab-btn" onclick="switchTab(this, 'pcb-1')">Схема / PCB</button>
-      <button class="tab-btn" onclick="switchTab(this, 'model-1')">3D модель</button>
-      <button class="tab-btn" onclick="switchTab(this, 'code-1')">Код</button>
     </div>
 
     <!-- TAB: Обзор -->
@@ -662,99 +675,26 @@
       </div>
     </div>
 
-    <!-- TAB: Фото/Видео -->
+    <!-- TAB: Фото -->
     <div id="media-1" class="tab-pane">
-      <div class="media-grid">
-        <div class="media-placeholder video">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-          DEMO VIDEO
-        </div>
-        <div class="media-placeholder">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          ФОТО 1
-        </div>
-        <div class="media-placeholder">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          ФОТО 2
-        </div>
-        <div class="media-placeholder">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          ФОТО 3
-        </div>
+      <div class="img-grid">
+        <img src="assets/images/hyperspectral/%D0%B2%D0%B8%D0%B4%20%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D1%8B.png" alt="Вид камеры" />
+        <img src="assets/images/hyperspectral/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0%201.png" alt="Скриншот интерфейса 1" />
+        <img src="assets/images/hyperspectral/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0%202.png" alt="Скриншот интерфейса 2" />
+        <img src="assets/images/hyperspectral/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0%203.png" alt="Скриншот интерфейса 3" />
       </div>
-      <p class="media-hint">// замените плейсхолдеры на реальные &lt;img&gt; или &lt;iframe&gt; с YouTube</p>
     </div>
 
     <!-- TAB: Схема/PCB -->
     <div id="pcb-1" class="tab-pane">
-      <div class="pcb-placeholder">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.0">
-          <rect x="2" y="2" width="20" height="20" rx="2"/>
-          <rect x="6" y="6" width="12" height="12" rx="1"/>
-          <line x1="6" y1="2" x2="6" y2="6"/><line x1="12" y1="2" x2="12" y2="6"/>
-          <line x1="18" y1="2" x2="18" y2="6"/><line x1="6" y1="18" x2="6" y2="22"/>
-          <line x1="12" y1="18" x2="12" y2="22"/><line x1="18" y1="18" x2="18" y2="22"/>
-          <line x1="2" y1="8" x2="6" y2="8"/><line x1="2" y1="14" x2="6" y2="14"/>
-          <line x1="18" y1="8" x2="22" y2="8"/><line x1="18" y1="14" x2="22" y2="14"/>
-        </svg>
-        СХЕМА / PCB — вставьте изображение экспорта из Altium
-      </div>
-      <div class="pcb-links">
-        <a href="#" class="btn btn-outline">↓ Скачать схему PDF</a>
-        <a href="#" class="btn btn-outline">↓ Gerber-файлы</a>
+      <div class="img-grid">
+        <img src="assets/images/hyperspectral/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%20%D0%B0%D0%BB%D1%8C%D1%82%D0%B8%D1%83%D0%BC.png" alt="Главная плата, Altium" />
+        <img src="assets/images/hyperspectral/%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%20%D0%BF%D0%BE%D0%B4%D1%81%D0%B2%D0%B5%D1%82%D0%BA%D0%B8%20%D0%B0%D0%BB%D1%8C%D1%82%D0%B8%D1%83%D0%BC.png" alt="Плата подсветки, Altium" />
+        <img src="assets/images/hyperspectral/%D0%B3%D0%BB%D0%B2%D0%B0%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%20%D0%B2%20%D0%B6%D0%B8%D0%B2%D1%83%D1%8E.jpg" alt="Главная плата, фото" />
+        <img src="assets/images/hyperspectral/%D0%BF%D0%BB%D0%B0%D1%82%D0%B0%20%D0%BF%D0%BE%D0%B4%D1%81%D0%B2%D0%B5%D1%82%D0%BA%D0%B8%20%D0%B2%20%D0%B6%D0%B8%D0%B2%D1%83%D1%8E.jpg" alt="Плата подсветки, фото" />
       </div>
     </div>
 
-    <!-- TAB: 3D модель -->
-    <div id="model-1" class="tab-pane">
-      <div class="pcb-placeholder" style="aspect-ratio: 16/8;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.0">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-        </svg>
-        3D-РЕНДЕР — вставьте изображение из SolidWorks или STL-вьюер
-      </div>
-      <div class="pcb-links">
-        <a href="#" class="btn btn-outline">↓ Скачать STL</a>
-        <a href="#" class="btn btn-outline">↓ Скачать STEP</a>
-      </div>
-    </div>
-
-    <!-- TAB: Код -->
-    <div id="code-1" class="tab-pane">
-      <div class="code-block">
-        <div class="code-block-header">
-          <span class="code-filename">usb_dma_stream.c</span>
-          <span class="code-lang">C · STM32 HAL/LL</span>
-        </div>
-        <pre><span class="cm">/* Инициализация DMA-цепочки для потоковой передачи кадра через USB OTG HS */</span>
-
-<span class="pp">#include</span> <span class="str">"stm32f4xx_ll_dma.h"</span>
-<span class="pp">#include</span> <span class="str">"usbd_cdc_if.h"</span>
-
-<span class="pp">#define</span> FRAME_SIZE   (<span class="num">640</span> * <span class="num">480</span> * <span class="num">2</span>)
-<span class="pp">#define</span> DMA_CHUNKS   (<span class="num">16</span>)
-<span class="pp">#define</span> CHUNK_SIZE   (FRAME_SIZE / DMA_CHUNKS)
-
-<span class="kw">static volatile</span> <span class="kw">uint8_t</span> frame_buf[FRAME_SIZE];
-<span class="kw">static volatile</span> <span class="kw">uint32_t</span> chunk_idx = <span class="num">0</span>;
-
-<span class="kw">void</span> <span class="fn">DMA2_Stream1_IRQHandler</span>(<span class="kw">void</span>) {
-    <span class="kw">if</span> (<span class="fn">LL_DMA_IsActiveFlag_TC1</span>(DMA2)) {
-        <span class="fn">LL_DMA_ClearFlag_TC1</span>(DMA2);
-        <span class="cm">/* Отправляем готовый чанк по USB без копирования */</span>
-        <span class="fn">CDC_Transmit_HS</span>(
-            (<span class="kw">uint8_t</span>*)&frame_buf[chunk_idx * CHUNK_SIZE],
-            CHUNK_SIZE
-        );
-        chunk_idx = (chunk_idx + <span class="num">1</span>) % DMA_CHUNKS;
-    }
-}</pre>
-      </div>
-      <div class="pcb-links">
-        <a href="https://github.com/elevencaps" class="btn btn-outline" target="_blank">
-          ↗ GitHub репозиторий
-        </a>
-      </div>
     </div>
 
   </div>
