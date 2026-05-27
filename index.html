@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Роман Коробейников — Инженер-прототипист</title>
+  <title>Роман Коробейников — Инженер</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -176,6 +176,7 @@
 
     .tag:hover { border-color: var(--accent); color: var(--accent); }
     .tag.accent { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+    .hero-tags .tag { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
 
     .hero-contacts {
       display: flex;
@@ -587,28 +588,28 @@
     <div class="card-header">
       <div class="card-title-block">
         <div class="card-index">PROJECT_001</div>
-        <h3>Устройство гиперспектральной визуализации</h3>
+        <h3>Устройство гиперспектральной визуализации для оценки гемангиом (v2)</h3>
         <p class="card-desc">
-          Система для биофотонических исследований: захват гиперспектральных
-          изображений тканей в реальном времени. Разработан low-level стек
-          на STM32, интегрирован с оптическим модулем, значительно увеличена
-          скорость передачи данных.
+          Портативный автономный прибор для количественной оценки инфантильных гемангиом.
+          Гиперспектральный захват 8 каналов (450–939 нм) за ~0.5 с вместо 5 с
+          у предыдущей версии.
         </p>
       </div>
       <div class="card-meta">
-        <span class="card-place">Сколтех · Лаб. биофотоники</span>
+        <span class="card-place">Лаборатория биофотоники, Сколтех</span>
         <span class="card-year">2025 — 2026</span>
       </div>
     </div>
 
     <div class="card-tags">
-      <span class="tag accent">STM32F4</span>
-      <span class="tag">DMA · USB OTG</span>
+      <span class="tag accent">STM32F103</span>
+      <span class="tag">Raspberry Pi Zero</span>
       <span class="tag">Altium Designer</span>
-      <span class="tag">SolidWorks</span>
-      <span class="tag">C (HAL/LL)</span>
+      <span class="tag">C / HAL</span>
       <span class="tag">Python</span>
-      <span class="tag">Оптика</span>
+      <span class="tag">PWM</span>
+      <span class="tag">USB CDC</span>
+      <span class="tag">PCB</span>
     </div>
 
     <div class="card-tabs">
@@ -625,34 +626,37 @@
         <div class="overview-block">
           <h4>Задача</h4>
           <ul>
-            <li>Захват гиперспектральных данных с высокой скоростью</li>
-            <li>Синхронизация камеры, сканера и источника света</li>
-            <li>Передача потока данных на ПК без потерь</li>
+            <li>Сократить время захвата 8 каналов с 5 с до приемлемого</li>
+            <li>Устранить неравномерную подсветку по каналам</li>
+            <li>Добавить подавление зеркальных бликов</li>
+            <li>Заменить модульную электронику (6 плат) и добавить мониторинг батареи</li>
           </ul>
         </div>
         <div class="overview-block">
           <h4>Моя роль</h4>
           <ul>
-            <li>Схемотехника и разводка платы (Altium)</li>
-            <li>Low-level прошивка STM32 (HAL + LL + регистры)</li>
-            <li>Интеграция электроники с оптическим модулем</li>
-            <li>Концепт-дизайн системы и архитектура ПО</li>
+            <li>Схемотехника и разводка двух плат в Altium Designer</li>
+            <li>Прошивка STM32 (HAL/C): PWM 20 кГц, USB CDC, АЦП батареи</li>
+            <li>Python-приложения для Raspberry Pi (UI + захват + TCP/IP) и ПК</li>
+            <li>Сборка и пайка SMD, вся оптическая верификация</li>
           </ul>
         </div>
         <div class="overview-block">
           <h4>Ключевые решения</h4>
           <ul>
-            <li>DMA-цепочки для zero-copy передачи кадров</li>
-            <li>USB OTG High Speed с кастомным дескриптором</li>
-            <li>Аппаратная синхронизация через TIM + NVIC</li>
+            <li>Pi + STM32: PWM-выравнивание яркости → фиксированные настройки камеры по всем каналам</li>
+            <li>64 SMD LED × 8 длин волн на 2 кольцах → одинаковая геометрия подсветки</li>
+            <li>Кросс-поляризационная схема (2 линейных фильтра) → подавление бликов</li>
+            <li>Единая двусторонняя PCB с pogo-pin монтажом Pi вместо 6 отдельных плат</li>
           </ul>
         </div>
         <div class="overview-block">
           <h4>Результат</h4>
           <ul>
-            <li>Скорость захвата увеличена в несколько раз</li>
-            <li>Рабочий прототип для лабораторных исследований</li>
-            <li>Стабильная работа в непрерывном режиме</li>
+            <li>Время захвата: 5 с → 0.5 с (×10)</li>
+            <li>Межканальная задержка: 600 мс → 10 мс</li>
+            <li>Количество плат: 6 → 1</li>
+            <li>Добавлен мониторинг батареи, подтверждена равномерность подсветки на гиперкубе ладони</li>
           </ul>
         </div>
       </div>
