@@ -648,7 +648,7 @@
         <div class="card-index">PROJECT_001</div>
         <h3>Устройство гиперспектральной визуализации для оценки гемангиом (v2)</h3>
         <p class="card-desc">
-          Портативный автономный прибор для количественной оценки инфантильных гемангиом.
+          Портативный автономный прибор для количественной оценки прогрессирования доброкачественных опухолей у младенцев.
           Гиперспектральный захват 8 каналов (450–939 нм) за ~0.5 с вместо 5 с
           у предыдущей версии.
         </p>
@@ -770,7 +770,7 @@
         <p class="card-desc">
           Медицинский прибор для фотохимической инактивации патогенов в донорской плазме.
           Светодиодная альтернатива коммерческим системам INTERCEPT/Mirasol — три переключаемых
-          УФ-диапазона (UVA/UVB/UVC), точный контроль дозы в реальном времени, термостабилизация пакета.
+          УФ-диапазона (UVA/UVB/UVC), точный контроль дозы в реальном времени, термостабилизация пакета с плазмой.
         </p>
       </div>
       <div class="card-meta">
@@ -842,8 +842,8 @@
     <div id="media-2" class="tab-pane">
       <div class="carousel">
         <div class="carousel-track">
-          <img src="assets/images/inabler/%D1%84%D0%BE%D1%82%D0%BE%201.jpg" alt="Фото 1" />
-          <img src="assets/images/inabler/%D1%84%D0%BE%D1%82%D0%BE%202.jpg" alt="Фото 2" />
+          <img src="assets/images/inabler/%D1%84%D0%BE%D1%82%D0%BE%202.jpg" alt="Фото 1" />
+          <img src="assets/images/inabler/%D1%84%D0%BE%D1%82%D0%BE%201.jpg" alt="Фото 2" />
         </div>
         <button class="carousel-btn prev">&#8249;</button>
         <button class="carousel-btn next">&#8250;</button>
@@ -875,6 +875,132 @@
 
   </div>
   <!-- /card 2 -->
+
+  <!-- ── CARD 3 ── -->
+  <div class="project-card">
+
+    <div class="card-header">
+      <div class="card-title-block">
+        <div class="card-index">PROJECT_003</div>
+        <h3>Автоматизация предметного столика лабораторного микроскопа</h3>
+        <p class="card-desc">
+          Система автоматизации XY-перемещения предметного столика оптического микроскопа
+          для автоматизированного подсчёта эритроцитов крови. Шаг перемещения до 5 мкм —
+          точность недостижимая вручную. Полный цикл: механика в SolidWorks, печать на FDM,
+          электроника, прошивка STM32, Python-интерфейс.
+        </p>
+      </div>
+      <div class="card-meta">
+        <span class="card-place">ООО «НЭТ»</span>
+        <span class="card-year">2025</span>
+      </div>
+    </div>
+
+    <div class="card-tags">
+      <span class="tag accent">STM32F411</span>
+      <span class="tag">C / HAL</span>
+      <span class="tag">USB CDC</span>
+      <span class="tag">TMC2209</span>
+      <span class="tag">NEMA</span>
+      <span class="tag">SolidWorks</span>
+      <span class="tag">FDM</span>
+      <span class="tag">Python</span>
+      <span class="tag">PySerial</span>
+    </div>
+
+    <div class="card-tabs">
+      <button class="tab-btn active" onclick="switchTab(this, 'overview-3')">Обзор</button>
+      <button class="tab-btn" onclick="switchTab(this, 'media-3')">Фото</button>
+      <button class="tab-btn" onclick="switchTab(this, 'video-3')">Видео</button>
+      <button class="tab-btn" onclick="switchTab(this, 'model-3')">3D модель</button>
+      <button class="tab-btn" onclick="switchTab(this, 'code-3')">Код</button>
+    </div>
+
+    <!-- TAB: Обзор -->
+    <div id="overview-3" class="tab-pane active">
+      <div class="overview-grid">
+        <div class="overview-block">
+          <h4>Задача</h4>
+          <ul>
+            <li>Заменить ручное сканирование предметного стекла автоматическим XY-перемещением</li>
+            <li>Обеспечить субмиллиметровую точность позиционирования (до 5 мкм)</li>
+            <li>Создать недорогую систему для автоматизированного подсчёта эритроцитов</li>
+          </ul>
+        </div>
+        <div class="overview-block">
+          <h4>Моя роль</h4>
+          <ul>
+            <li>Проектирование механики крепления и привода шестерни в SolidWorks</li>
+            <li>Печать деталей на FDM-принтере, подбор шаговых двигателей с планетарными редукторами</li>
+            <li>Схемотехника и прошивка STM32F411 (HAL/C) с USB CDC</li>
+            <li>Python-интерфейс управления на ПК</li>
+          </ul>
+        </div>
+        <div class="overview-block">
+          <h4>Ключевые решения</h4>
+          <ul>
+            <li>Два шаговых двигателя с планетарными редукторами — шаг перемещения до 5 мкм</li>
+            <li>Драйверы TMC2209 с микрошагом для плавного бесшумного движения</li>
+            <li>STM32F411 Blackpill + USB CDC — подключение к ПК без конвертеров</li>
+            <li>Протокол обмена данными собственной разработки</li>
+          </ul>
+        </div>
+        <div class="overview-block">
+          <h4>Результат</h4>
+          <ul>
+            <li>Рабочий прототип XY-столика, интегрированный в стандартный лабораторный микроскоп</li>
+            <li>Стабильная связка микроконтроллер — ПК — измерительное оборудование</li>
+            <li>Шаг позиционирования 5 мкм при планетарном редукторе</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Фото -->
+    <div id="media-3" class="tab-pane">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="assets/images/micro/%D1%84%D0%BE%D1%82%D0%BE%201.jpg" alt="Фото 1" />
+          <img src="assets/images/micro/%D1%84%D0%BE%D1%82%D0%BE%202.jpg" alt="Фото 2" />
+          <img src="assets/images/micro/%D1%84%D0%BE%D1%82%D0%BE%203.jpg" alt="Фото 3" />
+          <img src="assets/images/micro/%D1%84%D0%BE%D1%82%D0%BE%204.jpg" alt="Фото 4" />
+        </div>
+        <button class="carousel-btn prev">&#8249;</button>
+        <button class="carousel-btn next">&#8250;</button>
+        <div class="carousel-counter">1 / 4</div>
+      </div>
+    </div>
+
+    <!-- TAB: Видео -->
+    <div id="video-3" class="tab-pane">
+      <video controls style="width:100%; border-radius:4px; border:1px solid var(--border); display:block;">
+        <source src="assets/images/micro/%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- TAB: 3D модель -->
+    <div id="model-3" class="tab-pane">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="assets/images/micro/3%D0%B4%20%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%201.png" alt="3D модель 1" />
+          <img src="assets/images/micro/3%D0%B4%20%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%202.png" alt="3D модель 2" />
+          <img src="assets/images/micro/3%D0%B4%20%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%203.png" alt="3D модель 3" />
+        </div>
+        <button class="carousel-btn prev">&#8249;</button>
+        <button class="carousel-btn next">&#8250;</button>
+        <div class="carousel-counter">1 / 3</div>
+      </div>
+    </div>
+
+    <!-- TAB: Код -->
+    <div id="code-3" class="tab-pane">
+      <a href="https://github.com/Romankorobeinikov/microscope_automatisation" class="btn btn-outline" target="_blank">
+        ↗ GitHub: microscope_automatisation
+      </a>
+    </div>
+
+  </div>
+  <!-- /card 3 -->
 
   <!-- Сюда добавляйте следующие карточки, копируя блок выше -->
 
