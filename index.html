@@ -760,6 +760,135 @@
   </div>
   <!-- /card -->
 
+  <!-- ── CARD 2 ── -->
+  <div class="project-card">
+
+    <div class="card-header">
+      <div class="card-title-block">
+        <div class="card-index">PROJECT_002</div>
+        <h3>УФ-инактиватор патогенов плазмы крови</h3>
+        <p class="card-desc">
+          Медицинский прибор для фотохимической инактивации патогенов в донорской плазме.
+          Светодиодная альтернатива коммерческим системам INTERCEPT/Mirasol — три переключаемых
+          УФ-диапазона (UVA/UVB/UVC), точный контроль дозы в реальном времени, термостабилизация пакета.
+        </p>
+      </div>
+      <div class="card-meta">
+        <span class="card-place">ООО «ЦБИ КромБио»</span>
+        <span class="card-year">2025 — 2026</span>
+      </div>
+    </div>
+
+    <div class="card-tags">
+      <span class="tag accent">Arduino Nano</span>
+      <span class="tag">C++</span>
+      <span class="tag">UVA / UVB / UVC LED</span>
+      <span class="tag">Mean Well ELG</span>
+      <span class="tag">TMC2209</span>
+      <span class="tag">MOSFET</span>
+      <span class="tag">SolidWorks</span>
+      <span class="tag">Altium Designer</span>
+    </div>
+
+    <div class="card-tabs">
+      <button class="tab-btn active" onclick="switchTab(this, 'overview-2')">Обзор</button>
+      <button class="tab-btn" onclick="switchTab(this, 'media-2')">Фото</button>
+      <button class="tab-btn" onclick="switchTab(this, 'pcb-2')">Схема / PCB</button>
+      <button class="tab-btn" onclick="switchTab(this, 'model-2')">3D модель</button>
+    </div>
+
+    <!-- TAB: Обзор -->
+    <div id="overview-2" class="tab-pane active">
+      <div class="overview-grid">
+        <div class="overview-block">
+          <h4>Задача</h4>
+          <ul>
+            <li>Разработать доступный аналог INTERCEPT, Mirasol, THERAFLEX на базе УФ-светодиодов</li>
+            <li>Обеспечить переключение между тремя диапазонами УФ (UVA/UVB/UVC)</li>
+            <li>Реализовать точный контроль дозы облучения</li>
+          </ul>
+        </div>
+        <div class="overview-block">
+          <h4>Моя роль</h4>
+          <ul>
+            <li>Полный цикл: от ТЗ и литобзора до прототипа и КД</li>
+            <li>Расчёт и подбор 186 УФ-светодиодов (26 UVA + 100 UVB + 60 UVC)</li>
+            <li>Схемотехника: Arduino + Mean Well ELG + MOSFET-переключение</li>
+            <li>Механика перемешивания (NEMA 14 + TMC2209), прошивка C++, 3D-модель корпуса</li>
+          </ul>
+        </div>
+        <div class="overview-block">
+          <h4>Ключевые решения</h4>
+          <ul>
+            <li>Единый токовый драйвер Mean Well ELG-100-C1400DA + N-MOSFET переключение групп — три длины волны на одном драйвере</li>
+            <li>Алюминиевая PCB как теплоотвод для 186 SMD LED</li>
+            <li>Накопительный расчёт дозы через фотодатчик в реальном времени на МК</li>
+            <li>Активное охлаждение светодиодной матрицы</li>
+          </ul>
+        </div>
+        <div class="overview-block">
+          <h4>Результат</h4>
+          <ul>
+            <li>Полная техническая спецификация и рабочий прототип</li>
+            <li>Нагрев плазмы &lt;1°C за процедуру</li>
+            <li>Диапазон доз 0.2–6.5 Дж/см²</li>
+            <li>Время обработки 5–20 мин</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Фото -->
+    <div id="media-2" class="tab-pane">
+      <div class="media-grid">
+        <div class="media-placeholder video">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          DEMO VIDEO
+        </div>
+        <div class="media-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          ФОТО 1
+        </div>
+        <div class="media-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          ФОТО 2
+        </div>
+        <div class="media-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          ФОТО 3
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Схема/PCB -->
+    <div id="pcb-2" class="tab-pane">
+      <div class="pcb-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.0">
+          <rect x="2" y="2" width="20" height="20" rx="2"/>
+          <rect x="6" y="6" width="12" height="12" rx="1"/>
+          <line x1="6" y1="2" x2="6" y2="6"/><line x1="12" y1="2" x2="12" y2="6"/>
+          <line x1="18" y1="2" x2="18" y2="6"/><line x1="6" y1="18" x2="6" y2="22"/>
+          <line x1="12" y1="18" x2="12" y2="22"/><line x1="18" y1="18" x2="18" y2="22"/>
+          <line x1="2" y1="8" x2="6" y2="8"/><line x1="2" y1="14" x2="6" y2="14"/>
+          <line x1="18" y1="8" x2="22" y2="8"/><line x1="18" y1="14" x2="22" y2="14"/>
+        </svg>
+        СХЕМА / PCB
+      </div>
+    </div>
+
+    <!-- TAB: 3D модель -->
+    <div id="model-2" class="tab-pane">
+      <div class="pcb-placeholder" style="aspect-ratio: 16/8;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.0">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+        </svg>
+        3D-РЕНДЕР
+      </div>
+    </div>
+
+  </div>
+  <!-- /card 2 -->
+
   <!-- Сюда добавляйте следующие карточки, копируя блок выше -->
 
 </section>
