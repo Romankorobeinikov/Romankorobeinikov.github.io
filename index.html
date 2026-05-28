@@ -644,13 +644,50 @@
     }
 
     /* ─── FOOTER ─── */
+    /* ─── CONTACTS ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 24px 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+
+    .contact-item:hover { border-color: var(--accent); }
+
+    .contact-item-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--txt3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact-item-value {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--txt);
+    }
+
+    .contact-item:hover .contact-item-value { color: var(--accent); }
+
     footer {
       position: relative;
       z-index: 1;
       text-align: center;
-      padding: 60px 48px 40px;
+      padding: 32px 48px;
       border-top: 1px solid var(--border);
-      margin-top: 80px;
     }
 
     footer p {
@@ -1360,9 +1397,32 @@
   </div>
 </section>
 
+<!-- ══════════ CONTACTS ══════════ -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>Контакты</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <a class="contact-item" href="mailto:korobeinikov.rv@phystech.edu">
+      <span class="contact-item-label">Email</span>
+      <span class="contact-item-value">korobeinikov.rv@phystech.edu</span>
+    </a>
+    <a class="contact-item" href="https://t.me/elevencaps" target="_blank">
+      <span class="contact-item-label">Telegram</span>
+      <span class="contact-item-value">@elevencaps</span>
+    </a>
+    <a class="contact-item" href="https://github.com/Romankorobeinikov" target="_blank">
+      <span class="contact-item-label">GitHub</span>
+      <span class="contact-item-value">Romankorobeinikov</span>
+    </a>
+  </div>
+</section>
+
 <!-- ══════════ FOOTER ══════════ -->
-<footer id="contact">
-  <p>© 2026 · Роман Коробейников · korobeinikov.rv@phystech.edu · tg: @elevencaps</p>
+<footer>
+  <p>© 2026 · Роман Коробейников</p>
 </footer>
 
 <!-- ══════════ TABS JS ══════════ -->
