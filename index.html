@@ -699,9 +699,15 @@
 
     .hero-name-row {
       display: flex;
-      align-items: flex-end;
+      align-items: stretch;
       gap: 28px;
       margin-bottom: 16px;
+    }
+
+    .hero-name-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .hero-name-row h1 { margin-bottom: 0; }
@@ -743,16 +749,17 @@
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero">
-  <div class="hero-label">Инженер · Москва</div>
-
   <div class="hero-name-row">
-    <h1>Роман<br><span>Коробейников</span></h1>
+    <div class="hero-name-col">
+      <div class="hero-label">Инженер · Москва</div>
+      <h1>Роман<br><span>Коробейников</span></h1>
+    </div>
     <img src="assets/images/me/me.jpg" alt="Роман Коробейников" class="hero-photo" />
   </div>
 
   <p class="hero-sub">
     Разрабатываю комплексные устройства — от идеи до рабочего прототипа.
-    Схемотехника, прошивки STM32, печатные платы, 3D-модели корпусов
+    Схемотехника, печатные платы, прошивки, 3D-модели корпусов
     — полный цикл.
   </p>
 
@@ -762,7 +769,6 @@
     <span class="tag">Altium Designer</span>
     <span class="tag">SolidWorks</span>
     <span class="tag">Python</span>
-    <span class="tag">ESP32</span>
     <span class="tag">PCB Design</span>
     <span class="tag">Прототипирование</span>
     <span class="tag">МФТИ + Сколтех</span>
@@ -770,7 +776,7 @@
 
   <div class="hero-contacts">
     <a href="https://t.me/elevencaps" class="btn btn-primary" target="_blank">
-      ✈ Telegram @elevencaps
+      Telegram @elevencaps
     </a>
     <a href="mailto:korobeinikov.rv@phystech.edu" class="btn btn-outline">
       korobeinikov.rv@phystech.edu
@@ -832,13 +838,13 @@
             <li>Сократить время захвата 8 каналов с 5 с до приемлемого</li>
             <li>Устранить неравномерную подсветку по каналам</li>
             <li>Добавить подавление зеркальных бликов</li>
-            <li>Заменить модульную электронику (6 плат) и добавить мониторинг батареи</li>
+            <li>Заменить модульную электронику и добавить мониторинг батареи</li>
           </ul>
         </div>
         <div class="overview-block">
           <h4>Моя роль</h4>
           <ul>
-            <li>Схемотехника и разводка двух плат в Altium Designer</li>
+            <li>Схемотехника и разводка плат в Altium Designer</li>
             <li>Прошивка STM32 (HAL/C): PWM 20 кГц, USB CDC, АЦП батареи</li>
             <li>Python-приложения для Raspberry Pi (UI + захват + TCP/IP) и ПК</li>
             <li>Сборка и пайка SMD, вся оптическая верификация</li>
@@ -949,9 +955,9 @@
         <div class="overview-block">
           <h4>Задача</h4>
           <ul>
-            <li>Разработать доступный аналог INTERCEPT, Mirasol, THERAFLEX на базе УФ-светодиодов</li>
+            <li>Разработать доступный аналог зарубежных инактиваторов на базе УФ-светодиодов</li>
             <li>Обеспечить переключение между тремя диапазонами УФ (UVA/UVB/UVC)</li>
-            <li>Реализовать точный контроль дозы облучения</li>
+            <li>Реализовать перемешивание, точный контроль дозы облучения и температуры плазмы</li>
           </ul>
         </div>
         <div class="overview-block">
@@ -967,9 +973,9 @@
           <h4>Ключевые решения</h4>
           <ul>
             <li>Единый токовый драйвер Mean Well ELG-100-C1400DA + N-MOSFET переключение групп — три длины волны на одном драйвере</li>
-            <li>Алюминиевая PCB как теплоотвод для 186 SMD LED</li>
-            <li>Накопительный расчёт дозы через фотодатчик в реальном времени на МК</li>
-            <li>Активное охлаждение светодиодной матрицы</li>
+            <li>Алюминиевая PCB как теплоотвод для 186 SMD LED и активное охлаждение светодиодной матрицы</li>
+            <li>Расчёт дозы через фотодатчик и контроль температуры с помощью DS18B20</li>
+            <li>Перемешивание плазмы за счет вращения столика с пакетом</li>
           </ul>
         </div>
         <div class="overview-block">
@@ -1051,7 +1057,6 @@
       <span class="tag">SolidWorks</span>
       <span class="tag">FDM</span>
       <span class="tag">Python</span>
-      <span class="tag">PySerial</span>
     </div>
 
     <div class="card-tabs">
@@ -1087,7 +1092,7 @@
           <ul>
             <li>Два шаговых двигателя с планетарными редукторами — шаг перемещения до 5 мкм</li>
             <li>Драйверы TMC2209 с микрошагом для плавного бесшумного движения</li>
-            <li>STM32F411 Blackpill + USB CDC — подключение к ПК без конвертеров</li>
+            <li>STM32F411 Blackpill + USB CDC — подключение и управление с ПК</li>
             <li>Протокол обмена данными собственной разработки</li>
           </ul>
         </div>
@@ -1096,7 +1101,7 @@
           <ul>
             <li>Рабочий прототип XY-столика, интегрированный в стандартный лабораторный микроскоп</li>
             <li>Стабильная связка микроконтроллер — ПК — измерительное оборудование</li>
-            <li>Шаг позиционирования 5 мкм при планетарном редукторе</li>
+            <li>Шаг позиционирования 5 мкм с использованием планетарного редуктора</li>
           </ul>
         </div>
       </div>
