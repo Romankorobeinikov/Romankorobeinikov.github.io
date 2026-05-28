@@ -239,7 +239,7 @@
 
     .section-line {
       flex: 1;
-      height: 1px;
+      height: 3px;
       background: var(--border);
     }
 
@@ -555,6 +555,93 @@
     .num { color: var(--orange); }
     .str { color: #c3e88d; }
     .pp  { color: #ff6b6b; }
+
+    /* ─── OTHER PROJECTS SELECTOR ─── */
+    .selector-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .selector-tiles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .selector-tile {
+      padding: 24px 20px;
+      border: none;
+      border-right: 1px solid var(--border);
+      background: none;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: background 0.2s;
+      box-shadow: inset 0 -3px 0 transparent;
+    }
+
+    .selector-tile:last-child { border-right: none; }
+    .selector-tile:hover { background: var(--bg2); }
+    .selector-tile.active {
+      background: var(--bg2);
+      box-shadow: inset 0 -3px 0 var(--accent);
+    }
+
+    .tile-icon {
+      font-family: var(--mono);
+      font-size: 22px;
+      color: var(--txt3);
+      transition: color 0.2s;
+      line-height: 1;
+    }
+
+    .selector-tile:hover .tile-icon,
+    .selector-tile.active .tile-icon { color: var(--accent); }
+
+    .tile-name {
+      font-family: var(--head);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--txt2);
+      line-height: 1.25;
+      transition: color 0.2s;
+    }
+
+    .selector-tile.active .tile-name { color: #f0f0f8; }
+
+    .selector-content { display: none; padding: 32px 36px; }
+    .selector-content.active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .sel-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .sel-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .sel-tags .tag { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+    @media (max-width: 700px) {
+      .selector-tiles { grid-template-columns: repeat(2, 1fr); }
+      .selector-tile { border-bottom: 1px solid var(--border); }
+      .selector-content.active { grid-template-columns: 1fr; }
+    }
 
     /* ─── FOOTER ─── */
     footer {
@@ -1138,6 +1225,141 @@
 
 </section>
 
+<!-- ══════════ OTHER PROJECTS ══════════ -->
+<section id="other-projects">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Другие проекты</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="selector-card">
+
+    <!-- TILES -->
+    <div class="selector-tiles">
+      <button class="selector-tile active" onclick="selectProject(this, 'proj-colorimeter')">
+        <span class="tile-name">Фотоколориметр</span>
+      </button>
+      <button class="selector-tile" onclick="selectProject(this, 'proj-cart')">
+        <span class="tile-name">Автоматизация тележки</span>
+      </button>
+      <button class="selector-tile" onclick="selectProject(this, 'proj-eurobot')">
+        <span class="tile-name">Eurobot 2025</span>
+      </button>
+      <button class="selector-tile" onclick="selectProject(this, 'proj-insole')">
+        <span class="tile-name">Сенсорная стелька</span>
+      </button>
+    </div>
+
+    <!-- CONTENT: Фотоколориметр -->
+    <div id="proj-colorimeter" class="selector-content active">
+      <div class="overview-block">
+        <div class="sel-meta">Лаборатория биофотоники, Сколтех · 2024–2025</div>
+        <div class="sel-tags">
+          <span class="tag">STM32F103</span>
+          <span class="tag">OPT101P</span>
+          <span class="tag">DS18B20</span>
+          <span class="tag">SolidWorks</span>
+          <span class="tag">Altium</span>
+          <span class="tag">C / HAL</span>
+          <span class="tag">Python</span>
+        </div>
+        <h4>Что сделал</h4>
+        <ul>
+          <li>Трёхканальный проточный фотоколориметр (460/525/625 нм) для мониторинга диатомовых водорослей в биореакторе</li>
+          <li>Электронная схема: STM32F103, фотодетектор OPT101P, транзисторные ключи RGB LED; прошивка + Python-интерфейс</li>
+          <li>Механика: ПТФЭ кювета с оптическим путём 40 мм, FDM корпус с ЭМ-экранированием</li>
+          <li>Модель активной температурной компенсации (DS18B20 + линейная коррекция) — снижение вариабельности до 57% на канале 460 нм</li>
+          <li>LOD 337 клеток/мл; результаты опубликованы в статье</li>
+        </ul>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; width:90%; margin:0 auto;">
+        <img src="assets/images/color/1.jpg" alt="" style="width:100%; border-radius:4px; border:1px solid var(--border); object-fit:cover; aspect-ratio:1/1;">
+        <img src="assets/images/color/2.jpg" alt="" style="width:100%; border-radius:4px; border:1px solid var(--border); object-fit:cover; aspect-ratio:1/1;">
+        <img src="assets/images/color/3.jpg" alt="" style="width:100%; border-radius:4px; border:1px solid var(--border); object-fit:cover; aspect-ratio:1/1;">
+        <img src="assets/images/color/4.jpg" alt="" style="width:100%; border-radius:4px; border:1px solid var(--border); object-fit:cover; aspect-ratio:1/1;">
+      </div>
+    </div>
+
+    <!-- CONTENT: Автоматизация тележки -->
+    <div id="proj-cart" class="selector-content">
+      <div class="overview-block">
+        <div class="sel-meta">Лаборатория медтехники МФТИ · заказ ДИТ Москвы · 2023–2024</div>
+        <div class="sel-tags">
+          <span class="tag">GD32</span>
+          <span class="tag">Реверс-инжиниринг</span>
+          <span class="tag">CMake</span>
+          <span class="tag">GNU toolchain</span>
+          <span class="tag">Arduino Nano</span>
+          <span class="tag">UART</span>
+          <span class="tag">Тензодатчики</span>
+        </div>
+        <h4>Что сделал</h4>
+        <ul>
+          <li>Реверс-инжиниринг прошивки ховерборда на GD32 (клон STM32) — восстановил протокол управления, перепрошил через CMake/GNU toolchain</li>
+          <li>Узел управления на Arduino Nano: два тензодатчика на ручке → сигнал по UART в модифицированную прошивку ховерборда вместо штатных датчиков наклона</li>
+          <li>Ховерборд закреплён под тележкой как привод; усилие на перемещение снижено в 10 раз, манёвренность значительно увеличена</li>
+        </ul>
+      </div>
+      <video controls style="width:100%; max-height:60vh; border-radius:4px; border:1px solid var(--border); display:block;">
+        <source src="assets/images/cart/cart.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- CONTENT: Eurobot 2025 -->
+    <div id="proj-eurobot" class="selector-content">
+      <div class="overview-block">
+        <div class="sel-meta">Сколтех · 2024–2025 · 1-е место на соревнованиях</div>
+        <div class="sel-tags">
+          <span class="tag">STM32F4</span>
+          <span class="tag">FreeRTOS</span>
+          <span class="tag">Keil uVision</span>
+          <span class="tag">HAL / CMSIS</span>
+          <span class="tag">Dynamixel</span>
+          <span class="tag">Maxon</span>
+          <span class="tag">Шаговые двигатели</span>
+        </div>
+        <h4>Что сделал</h4>
+        <ul>
+          <li>Вся электроника робота — сборка, монтаж, пайка</li>
+          <li>Прошивка STM32F4 на FreeRTOS: поток коммуникации с Intel NUC, управление колёсной базой (3 омни-колеса Maxon), сенсоры, захваты, вакуумные помпы, шаговые двигатели подъёмников</li>
+          <li>Задача: автономное построение башен из банок и дощечек на поле 2×3 м</li>
+        </ul>
+      </div>
+      <video controls style="width:100%; max-height:60vh; border-radius:4px; border:1px solid var(--border); display:block;">
+        <source src="assets/images/eurobot/video.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- CONTENT: Сенсорная стелька -->
+    <div id="proj-insole" class="selector-content">
+      <div class="overview-block">
+        <div class="sel-meta">Лаборатория медтехники МФТИ · заказ Ортека · 2023–2024</div>
+        <div class="sel-tags">
+          <span class="tag">STM32F103</span>
+          <span class="tag">Bluepill</span>
+          <span class="tag">C / HAL</span>
+          <span class="tag">STM32CubeIDE</span>
+          <span class="tag">BMI160</span>
+          <span class="tag">USB CDC</span>
+          <span class="tag">Python</span>
+        </div>
+        <h4>Что сделал</h4>
+        <ul>
+          <li>Прошивка STM32F103 для резистивной стельки с матрицей давления 8×8 (64 площадки)</li>
+          <li>Алгоритм аналогового опроса матрицы с устранением перекрёстных искажений между соседними ячейками</li>
+          <li>Фьюжн данных акселерометра и гироскопа BMI160 для определения положения стельки в пространстве</li>
+          <li>Передача по USB CDC; Python-приложение строит 2D карту давления в реальном времени</li>
+        </ul>
+      </div>
+      <video controls style="width:100%; max-height:50vh; border-radius:4px; border:1px solid var(--border); display:block;">
+        <source src="assets/images/insole/video.MOV" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</section>
+
 <!-- ══════════ FOOTER ══════════ -->
 <footer id="contact">
   <p>© 2026 · Роман Коробейников · korobeinikov.rv@phystech.edu · tg: @elevencaps</p>
@@ -1151,6 +1373,14 @@
     card.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById(paneId).classList.add('active');
+  }
+
+  function selectProject(tile, contentId) {
+    const card = tile.closest('.selector-card');
+    card.querySelectorAll('.selector-tile').forEach(t => t.classList.remove('active'));
+    card.querySelectorAll('.selector-content').forEach(c => c.classList.remove('active'));
+    tile.classList.add('active');
+    document.getElementById(contentId).classList.add('active');
   }
 
   document.querySelectorAll('.carousel').forEach(car => {
