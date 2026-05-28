@@ -573,6 +573,24 @@
       letter-spacing: 0.06em;
     }
 
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .hero-text { flex: 1; }
+
+    .hero-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--border2);
+      flex-shrink: 0;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 700px) {
       nav { padding: 0 20px; }
@@ -580,6 +598,8 @@
       .nav-links { display: none; }
       .card-header { flex-direction: column; }
       .card-meta { align-items: flex-start; }
+      .hero-layout { flex-direction: column-reverse; gap: 32px; }
+      .hero-photo { width: 140px; height: 140px; }
       .overview-grid { grid-template-columns: 1fr; }
       .media-grid { grid-template-columns: 1fr; }
       .media-placeholder.video { grid-column: span 1; }
@@ -600,35 +620,41 @@
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero">
-  <div class="hero-label">Инженер · Москва</div>
+  <div class="hero-layout">
+    <div class="hero-text">
+      <div class="hero-label">Инженер · Москва</div>
 
-  <h1>Роман<br><span>Коробейников</span></h1>
+      <h1>Роман<br><span>Коробейников</span></h1>
 
-  <p class="hero-sub">
-    Разрабатываю комплексные устройства — от идеи до рабочего прототипа.
-    Схемотехника, прошивки STM32, печатные платы, 3D-модели корпусов
-    — полный цикл.
-  </p>
+      <p class="hero-sub">
+        Разрабатываю комплексные устройства — от идеи до рабочего прототипа.
+        Схемотехника, прошивки STM32, печатные платы, 3D-модели корпусов
+        — полный цикл.
+      </p>
 
-  <div class="hero-tags">
-    <span class="tag accent">STM32 / ARM</span>
-    <span class="tag">C / C++</span>
-    <span class="tag">Altium Designer</span>
-    <span class="tag">SolidWorks</span>
-    <span class="tag">Python</span>
-    <span class="tag">ESP32</span>
-    <span class="tag">PCB Design</span>
-    <span class="tag">Прототипирование</span>
-    <span class="tag">МФТИ + Сколтех</span>
-  </div>
+      <div class="hero-tags">
+        <span class="tag accent">STM32 / ARM</span>
+        <span class="tag">C / C++</span>
+        <span class="tag">Altium Designer</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">Python</span>
+        <span class="tag">ESP32</span>
+        <span class="tag">PCB Design</span>
+        <span class="tag">Прототипирование</span>
+        <span class="tag">МФТИ + Сколтех</span>
+      </div>
 
-  <div class="hero-contacts">
-    <a href="https://t.me/elevencaps" class="btn btn-primary" target="_blank">
-      ✈ Telegram @elevencaps
-    </a>
-    <a href="mailto:korobeinikov.rv@phystech.edu" class="btn btn-outline">
-      korobeinikov.rv@phystech.edu
-    </a>
+      <div class="hero-contacts">
+        <a href="https://t.me/elevencaps" class="btn btn-primary" target="_blank">
+          ✈ Telegram @elevencaps
+        </a>
+        <a href="mailto:korobeinikov.rv@phystech.edu" class="btn btn-outline">
+          korobeinikov.rv@phystech.edu
+        </a>
+      </div>
+    </div>
+
+    <img src="assets/images/me/me.jpg" alt="Роман Коробейников" class="hero-photo" />
   </div>
 </section>
 
